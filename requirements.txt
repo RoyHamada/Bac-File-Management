@@ -2,3 +2,9 @@ Flask
 gunicorn
 psycopg2-binary  # If using PostgreSQL
 pytesseract
+pdf2image
+Pillow
+werkzeug
+psycopg2
+flask-bcrypt
+flask-login
