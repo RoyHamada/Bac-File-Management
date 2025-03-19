@@ -1,0 +1,18 @@
+# Ignore Python cache & logs
+__pycache__/
+*.log
+
+# Ignore database files
+*.db
+instance/
+
+# Ignore uploads (user files)
+uploads/
+static/uploads/
+
+# Ignore virtual environment (if using one)
+venv/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
