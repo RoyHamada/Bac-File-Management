@@ -2,6 +2,10 @@ import os
 import sys
 sys.path.append("C:/Users/Rina Mae/Desktop/Python 1")
 
+import pytesseract
+pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+
+
 #preview
 from flask import Flask, render_template, request, jsonify, send_from_directory, url_for
 import pytesseract
@@ -64,7 +68,7 @@ def load_user(user_id):
 # Home Page
 @app.route('/')
 def home():
-    return render_template("index.php")
+    return render_template("index.html")
 
 # Registration Page
 @app.route('/register', methods=['GET', 'POST'])
