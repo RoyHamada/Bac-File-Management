@@ -5,6 +5,10 @@ sys.path.append("C:/Users/Rina Mae/Desktop/Python 1")
 import pytesseract
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
 
+#config flask to use the database (render)
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from config import Config
 
 #preview
 from flask import Flask, render_template, request, jsonify, send_from_directory, url_for
@@ -26,6 +30,7 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from flask import send_file
 
+#for migration
 
 
 app = Flask(__name__)
@@ -35,6 +40,8 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"
 
+app.config.from_object(Config)
+db = SQLAlchemy(app)
 
 
 # Database connection
@@ -47,6 +54,8 @@ def get_db_connection():
         port="5432",
         cursor_factory=RealDictCursor
     )
+
+    
 
 # User class
 class User(UserMixin):
