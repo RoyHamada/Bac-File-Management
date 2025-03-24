@@ -46,8 +46,14 @@ db = SQLAlchemy(app)
 
 # Database connection
 def get_db_connection():
-    DATABASE_URL = os.getenv("postgresql://bac_0v9v_user:WZ5IThhOyeEKwjKrdNesNBXswi2RMM2d@dpg-cvd60gjtq21c73a9dr9g-a/bac_0v9v")  # Get the database URL from Render
-    return psycopg2.connect(DATABASE_URL)
+    return psycopg2.connect(
+        dbname="BAC",
+        user="postgres",
+        password="652018",
+        host="localhost",
+        port="5432",
+        cursor_factory=RealDictCursor
+    )
 
     
 
