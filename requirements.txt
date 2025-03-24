@@ -8,3 +8,8 @@ werkzeug
 psycopg2
 flask-bcrypt
 flask-login
+
+flask_sqlalchemy
+flask_migrate
+flask_login
+python-dotenv
